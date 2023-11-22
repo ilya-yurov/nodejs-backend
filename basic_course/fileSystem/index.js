@@ -48,29 +48,29 @@ const path = require('path');
 // })
 
 // TODO: Делаем через промисы самостоятельно
-const writeFileAsync = async (path, data) => {
-    return new Promise((resolve, reject) => {
-        fs.writeFile(path, data, (err) => {
-            if (err) {
-                reject(err.message)
-            }
+// const writeFileAsync = async (path, data) => {
+//     return new Promise((resolve, reject) => {
+//         fs.writeFile(path, data, (err) => {
+//             if (err) {
+//                 reject(err.message)
+//             }
+//
+//             resolve('Файл записан');
+//         })
+//     })
+// }
 
-            resolve('Файл записан');
-        })
-    })
-}
-
-const appendFileAsync = async (path, data) => {
-    return new Promise((resolve, reject) => {
-        fs.appendFile(path, data, (err) => {
-            if (err) {
-                reject(err.message)
-            }
-
-            resolve('Файл дозаписан');
-        })
-    })
-}
+// const appendFileAsync = async (path, data) => {
+//     return new Promise((resolve, reject) => {
+//         fs.appendFile(path, data, (err) => {
+//             if (err) {
+//                 reject(err.message)
+//             }
+//
+//             resolve('Файл дозаписан');
+//         })
+//     })
+// }
 //
 // writeFileAsync(path.resolve(__dirname, 'test.txt'), 'Data text')
 //     .then(() => appendFileAsync(path.resolve(__dirname, 'test.txt'), 'Advanced text'))
@@ -119,4 +119,18 @@ const appendFileAsync = async (path, data) => {
 // })
 
 // TODO: Задача: через переменную окружения передаем строку, записываем ее в файл, читаем файл, считаем кол-во слов и записываем их в новый файл count.txt, затем удаляем первый файл
-console.log(process.env.STRING);
+// TODO: Мое решение:
+// const readCountFunc = async (data) => {
+//     try {
+//         await fsPromises.writeFile(path.resolve(__dirname, 'text.txt'), data);
+//
+//         const read = await fsPromises.readFile(path.resolve(__dirname, 'text.txt'), {encoding: "utf-8"})
+//
+//         await fsPromises.writeFile(path.resolve(__dirname, 'count.txt'), read.split(' ').length.toString());
+//         await fsPromises.rm(path.resolve(__dirname, 'text.txt'));
+//     } catch {
+//         console.log('Ошибка выполнения функции чтения')
+//     }
+// }
+//
+// readCountFunc(process.env.STRING || '').then();
