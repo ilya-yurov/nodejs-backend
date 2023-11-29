@@ -1,0 +1,66 @@
+<mxfile host="app.diagrams.net" modified="2023-11-29T11:09:13.807Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="wfUCQK11bHVFshIsp_6Z" version="22.1.4" type="github">
+  <diagram name="Page-1" id="7S5t7LPapnOhtMKpFzu6">
+    <mxGraphModel dx="1195" dy="643" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TuhL-R9BCsj_GkGIMn1k-18" value="person" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="30" y="50" width="160" height="116" as="geometry">
+            <mxRectangle x="30" y="50" width="60" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TuhL-R9BCsj_GkGIMn1k-19" value="id SERIAL" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="TuhL-R9BCsj_GkGIMn1k-18">
+          <mxGeometry y="26" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TuhL-R9BCsj_GkGIMn1k-20" value="name&amp;nbsp; VARCHAR" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="TuhL-R9BCsj_GkGIMn1k-18">
+          <mxGeometry y="56" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TuhL-R9BCsj_GkGIMn1k-21" value="surname VARCHAR" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="TuhL-R9BCsj_GkGIMn1k-18">
+          <mxGeometry y="86" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TuhL-R9BCsj_GkGIMn1k-22" value="post" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="310" y="50" width="160" height="146" as="geometry">
+            <mxRectangle x="30" y="50" width="60" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TuhL-R9BCsj_GkGIMn1k-23" value="id SERIAL&lt;br&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="TuhL-R9BCsj_GkGIMn1k-22">
+          <mxGeometry y="26" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TuhL-R9BCsj_GkGIMn1k-24" value="title VARCHAR" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="TuhL-R9BCsj_GkGIMn1k-22">
+          <mxGeometry y="56" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TuhL-R9BCsj_GkGIMn1k-25" value="content VARCHAR" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="TuhL-R9BCsj_GkGIMn1k-22">
+          <mxGeometry y="86" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TuhL-R9BCsj_GkGIMn1k-28" value="user_id FK" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="TuhL-R9BCsj_GkGIMn1k-22">
+          <mxGeometry y="116" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TuhL-R9BCsj_GkGIMn1k-31" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="TuhL-R9BCsj_GkGIMn1k-19" target="TuhL-R9BCsj_GkGIMn1k-23">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="460" y="360" as="sourcePoint" />
+            <mxPoint x="560" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TuhL-R9BCsj_GkGIMn1k-32" value="FK - Foreign Key - внешний ключ" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="880" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TuhL-R9BCsj_GkGIMn1k-33" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="900" y="50" as="sourcePoint" />
+            <mxPoint x="1070" y="50" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="900" y="40" />
+              <mxPoint x="1040" y="70" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TuhL-R9BCsj_GkGIMn1k-34" value="Связ вида один-ко-многим" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="895" y="50" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TuhL-R9BCsj_GkGIMn1k-36" value="Связь показывает что на одного человека приходится несколько постов" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="60" y="10" width="430" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
