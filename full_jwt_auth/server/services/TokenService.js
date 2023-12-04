@@ -14,6 +14,19 @@ class TokenService {
         return { accessToken, refreshToken };
     }
 
+    validateToken(token, isAccess) {
+        try {
+            const userData = jwt.verify(
+                token,
+                isAccess
+                    ? process.env.JWT_ACCESS_SECRET
+                    : process.env.JWT_REFRESH_SECRET
+            );
+        } catch (e) {
+            return null;
+        }
+    }
+
     async saveToken(userId, refreshToken) {
         // При таком подходе в БД у одного пользователя может быть только один токен
         // Т.е. при попытке зайти с другого устройства с предыдущего юзера выкинет, т.к. токен перезатрется
@@ -31,6 +44,19 @@ class TokenService {
         const token = await Token.create({ user: userId, refreshToken });
 
         return token;
+    }
+
+    async removeToken(refreshToken) {
+        // Запись БД в этом случае вернется, поэтому помещаем ее в переменную
+        const tokenData = await Token.deleteOne({ refreshToken });
+
+        return tokenData;
+    }
+
+    async findToken(refreshToken) {
+        const tokenData = await Token.findOne({ refreshToken });
+
+        return tokenData;
     }
 }
 

@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import router from './router/index.js';
+import errorMiddleware from './middleware/Error.js';
 
 dotenv.config();
 
@@ -15,6 +16,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 app.use('/api', router);
+// Middleware для обработки ошибок обязательно должен идти последним
+app.use(errorMiddleware);
 
 const start = async () => {
     try {
