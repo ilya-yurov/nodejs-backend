@@ -16,7 +16,7 @@ class TokenService {
 
     validateToken(token, isAccess) {
         try {
-            const userData = jwt.verify(
+            return jwt.verify(
                 token,
                 isAccess
                     ? process.env.JWT_ACCESS_SECRET

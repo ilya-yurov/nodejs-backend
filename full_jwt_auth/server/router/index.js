@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { body } from 'express-validator';
 import UserController from '../controllers/UserController.js';
+import AuthMiddleware from "../middleware/Auth.js";
 
 const router = new Router();
 
@@ -18,6 +19,6 @@ router.get('/activate/:link', UserController.activate);
 // Для обновления refresh-токена
 router.get('/refresh', UserController.refresh);
 // Доступен только для авторизованных юзеров
-router.get('/users', UserController.getUsers);
+router.get('/users', AuthMiddleware, UserController.getUsers);
 
 export default router;
