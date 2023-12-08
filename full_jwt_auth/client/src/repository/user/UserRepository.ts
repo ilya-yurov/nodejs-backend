@@ -1,44 +1,19 @@
 import Store from "./Store";
-import AuthService from "services/auth/AuthService";
 import User from "entity/user/User";
+import UserService from "services/user/UserService";
 
 export default class UserRepository {
     private readonly store = new Store();
 
-    async logine(email: string, password: string) {
-        try {
-            const response = await AuthService.login(email, password);
-
-            // Сохраняем токен в localStorage, чтобы затем добавлять его к каждому запросу
-            localStorage.setItem('token', response.data.accessToken);
-            this.store.setAuth(true);
-            this.store.setUser(response.data.user);
-        } catch (e) {
-            console.log(e);
-        }
+    public get users(): User[] {
+        return this.store.users;
     }
 
-    async registration(email: string, password: string) {
+    public fetchUsers = async () => {
         try {
-            const response = await AuthService.registration(email, password);
+            const response = await UserService.fetchUsers();
 
-            // Сохраняем токен в localStorage, чтобы затем добавлять его к каждому запросу
-            localStorage.setItem('token', response.data.accessToken);
-            this.store.setAuth(true);
-            this.store.setUser(response.data.user);
-        } catch (e) {
-            console.log(e);
-        }
-    }
-
-    async logout() {
-        try {
-            const response = await AuthService.logout();
-
-            // Сохраняем токен в localStorage, чтобы затем добавлять его к каждому запросу
-            localStorage.removeItem('token');
-            this.store.setAuth(false);
-            this.store.setUser(User.CreateEmpty());
+            this.store.setUsers(response.data);
         } catch (e) {
             console.log(e);
         }

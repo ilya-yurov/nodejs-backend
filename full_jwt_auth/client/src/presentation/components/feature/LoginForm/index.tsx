@@ -22,10 +22,10 @@ const LoginForm: FC = () => {
                     placeholder='Password'
                     autoComplete="off"
                 />
-                <button onClick={() => authRepository.login(email, password)}>
+                <button type="button" onClick={() => authRepository.login(email, password)}>
                     Login
                 </button>
-                <button onClick={() => authRepository.registration(email, password)}>
+                <button type="button" onClick={() => authRepository.registration(email, password)}>
                     Register
                 </button>
             </form>

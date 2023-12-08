@@ -1,5 +1,5 @@
-import ApiError from "../exceptions/ApiError.js";
-import TokenService from "../services/TokenService.js";
+import ApiError from '../exceptions/ApiError.js';
+import TokenService from '../services/TokenService.js';
 
 export default function AuthMiddleware(req, res, next) {
     try {

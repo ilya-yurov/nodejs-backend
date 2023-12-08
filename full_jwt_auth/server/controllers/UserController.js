@@ -73,7 +73,7 @@ class UserController {
             // После того, как пользователь перешел по ссылке необходимо редиректнуть его на фронтенд
             return res.redirect(process.env.CLIENT_URL);
         } catch (e) {
-            console.log(e);
+            next(e);
         }
     }
 
@@ -90,7 +90,7 @@ class UserController {
 
             return res.json(userData);
         } catch (e) {
-            console.log(e);
+            next(e);
         }
     }
 
@@ -98,7 +98,7 @@ class UserController {
         try {
             return res.json(await UserService.getAllUsers());
         } catch (e) {
-            console.log(e);
+            next(e);
         }
     }
 }

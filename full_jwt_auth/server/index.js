@@ -14,7 +14,13 @@ const app = express();
 app.use(express.json());
 //Нужен, чтобы можно было работать с res.cookie
 app.use(cookieParser());
-app.use(cors());
+// В настройках корса разрешаем обмен куками и указываем урл фронтенда
+app.use(
+    cors({
+        credentials: true,
+        origin: process.env.CLIENT_URL,
+    })
+);
 app.use('/api', router);
 // Middleware для обработки ошибок обязательно должен идти последним
 app.use(errorMiddleware);

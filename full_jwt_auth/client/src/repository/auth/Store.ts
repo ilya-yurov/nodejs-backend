@@ -4,6 +4,7 @@ import {makeAutoObservable} from "mobx";
 export default class Store {
     user: User = User.CreateEmpty();
     isAuth = false;
+    isLoading = false;
 
     constructor() {
         makeAutoObservable(this)
@@ -16,5 +17,9 @@ export default class Store {
 
     setUser(user: User) {
         this.user = user;
+    }
+
+    setIsLoading(isLoading: boolean) {
+        this.isLoading = isLoading;
     }
 }

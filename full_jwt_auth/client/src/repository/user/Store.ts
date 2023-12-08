@@ -2,19 +2,14 @@ import User from "entity/user/User";
 import {makeAutoObservable} from "mobx";
 
 export default class Store {
-    user: User = User.CreateEmpty();
-    isAuth = false;
+    users: User[] = [];
 
     constructor() {
         makeAutoObservable(this)
     }
 
     // Мутации для изменения полей стора
-    setAuth(isAuth: boolean) {
-        this.isAuth = isAuth
-    }
-
-    setUser(user: User) {
-        this.user = user;
+    setUsers(users: User[]) {
+        this.users = users;
     }
 }
