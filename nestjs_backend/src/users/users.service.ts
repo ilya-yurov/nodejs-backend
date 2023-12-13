@@ -18,7 +18,10 @@ export class UsersService {
         const role = await this.rolesService.getByValue(RoleEnum.User);
 
         // Указываем то, что эта роль принадлежит пользователю
+        // Функция $set добавляет роль в базу данных, но сам user без роли
         await user.$set('roles', [role.id]);
+        //Поэтому нужно обновить user с ролью как ниже
+        user.roles = [role];
 
         return user
     }
@@ -29,5 +32,11 @@ export class UsersService {
         const users = await this.userRepository.findAll({include: {all: true}});
 
         return users;
+    }
+
+    async getUserByEmail(email: string) {
+        const user = await this.userRepository.findOne({where: {email}, include: {all: true}});
+
+        return user;
     }
 }

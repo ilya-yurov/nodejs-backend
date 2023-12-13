@@ -9,6 +9,7 @@ import { RolesController } from './roles/roles.controller';
 import { RolesModule } from './roles/roles.module';
 import {Role} from "src/roles/roles.model";
 import {UserRoles} from "src/models/common/user-roles.model";
+import { AuthModule } from './auth/auth.module';
 
 @Module({
     // Когда мы хотим в наш модуль импортировать какие-то другие модули, то мы создаем массив импортов и добавляем туда все необходимые модули
@@ -29,6 +30,7 @@ import {UserRoles} from "src/models/common/user-roles.model";
         }),
         UsersModule,
         RolesModule,
+        AuthModule,
     ],
     // В провайдере может быть реализован любой переиспользуемый компонент приложения
     // Либо сервисы с логикой, имплементация паттрнов, стратегий
