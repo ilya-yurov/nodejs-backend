@@ -1,14 +1,14 @@
-import {Module} from "@nestjs/common";
-import {ConfigModule} from "@nestjs/config";
-import { SequelizeModule } from "@nestjs/sequelize";
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { SequelizeModule } from '@nestjs/sequelize';
 import { UsersModule } from 'src/users/users.module';
-import * as process from "process";
-import {User} from "src/users/users.model";
+import * as process from 'process';
+import { User } from 'src/users/users.model';
 import { RolesService } from './roles/roles.service';
 import { RolesController } from './roles/roles.controller';
 import { RolesModule } from './roles/roles.module';
-import {Role} from "src/roles/roles.model";
-import {UserRoles} from "src/models/common/user-roles.model";
+import { Role } from 'src/roles/roles.model';
+import { UserRoles } from 'src/models/common/user-roles.model';
 import { AuthModule } from './auth/auth.module';
 
 @Module({
@@ -26,7 +26,7 @@ import { AuthModule } from './auth/auth.module';
             database: process.env.POSTGRES_DB,
             models: [User, Role, UserRoles],
             // Это поле нужно, чтобы секвалайз создавал таблицы в БД на основании тех моделей, которые мы будем создавать
-            autoLoadModels: true
+            autoLoadModels: true,
         }),
         UsersModule,
         RolesModule,

@@ -1,9 +1,8 @@
-import {NestFactory} from "@nestjs/core";
-import {DocumentBuilder, SwaggerModule} from "@nestjs/swagger";
-import {AppModule} from "src/app.module";
+import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { AppModule } from 'src/app.module';
 
 const PORT = process.env.PORT || 5000;
-
 
 async function start() {
     // В NestFactory нужно передать некий модуль
@@ -21,7 +20,9 @@ async function start() {
     // Первым параметром передаем адрес, по которому можно будет прочитать доку
     SwaggerModule.setup('/api/docs', app, document);
 
-    await app.listen(PORT, () => console.log(`Server started on port = ${PORT}`))
+    await app.listen(PORT, () =>
+        console.log(`Server started on port = ${PORT}`)
+    );
 }
 
 start().then();

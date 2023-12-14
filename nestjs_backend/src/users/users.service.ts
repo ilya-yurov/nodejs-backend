@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import {InjectModel} from "@nestjs/sequelize";
-import {User} from "src/users/users.model";
-import {UserDTO} from "./DTO/UserDTO";
-import {RolesService} from "src/roles/roles.service";
-import RoleEnum from "src/enums/Role";
+import { InjectModel } from '@nestjs/sequelize';
+import { User } from 'src/users/users.model';
+import { UserDTO } from './DTO/UserDTO';
+import { RolesService } from 'src/roles/roles.service';
+import RoleEnum from 'src/enums/Role';
 
 @Injectable()
 export class UsersService {
     // Инжектим модель через конструктор
     constructor(
         @InjectModel(User) private userRepository: typeof User,
-        private rolesService: RolesService,
+        private rolesService: RolesService
     ) {}
 
     async create(dto: UserDTO) {
@@ -23,19 +23,24 @@ export class UsersService {
         //Поэтому нужно обновить user с ролью как ниже
         user.roles = [role];
 
-        return user
+        return user;
     }
 
     async getAll() {
         // При помощи include можно указать конкретную модель, которую мы хотим подтянуть с пользователем
         // Сделав all: true мы подтягиваем все поля, с которыми как-то связан пользователь
-        const users = await this.userRepository.findAll({include: {all: true}});
+        const users = await this.userRepository.findAll({
+            include: { all: true },
+        });
 
         return users;
     }
 
     async getUserByEmail(email: string) {
-        const user = await this.userRepository.findOne({where: {email}, include: {all: true}});
+        const user = await this.userRepository.findOne({
+            where: { email },
+            include: { all: true },
+        });
 
         return user;
     }
