@@ -8,10 +8,9 @@ export class JwtAuthGuard implements CanActivate {
 
     // Суть этой функции в том, что когда она возвращает false - доступ запрещен/ true - разрешен
     canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
-        // Получаем реквест из контекста
-        const req = context.switchToHttp().getRequest();
-
         try {
+            // Получаем реквест из контекста
+            const req = context.switchToHttp().getRequest();
             const authHeader = req.headers.authorization;
             const [bearer, token] = authHeader.split(' ');
 
@@ -24,6 +23,7 @@ export class JwtAuthGuard implements CanActivate {
 
             return true;
         } catch (e) {
+            console.error('Error in canActivate:', e);
             throw new UnauthorizedException({message: 'Пользователь не авторизован'});
         }
     }
