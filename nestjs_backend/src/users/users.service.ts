@@ -17,7 +17,7 @@ export class UsersService {
 
     async create(dto: UserDTO) {
         const user = await this.userRepository.create(dto);
-        const role = await this.rolesService.getByValue(RoleEnum.Admin);
+        const role = await this.rolesService.getByValue(RoleEnum.User);
 
         // Указываем то, что эта роль принадлежит пользователю.
         // Функция $set ИНИЦИАЛИЗИРУЕТ роль в базу данных, но сам user без роли.

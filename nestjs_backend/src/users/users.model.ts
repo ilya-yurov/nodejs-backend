@@ -3,11 +3,12 @@ import {
     Model,
     Column,
     DataType,
-    BelongsToMany,
+    BelongsToMany, HasMany,
 } from 'sequelize-typescript';
 import { ApiProperty } from '@nestjs/swagger';
 import { Role } from 'src/roles/roles.model';
 import { UserRoles } from 'src/models/common/user-roles.model';
+import { Post } from 'src/posts/posts.model';
 
 // Описываем те поля, которые нужны для создания объекта этого класса
 // Передаем вторым дженериком в  Model
@@ -52,4 +53,9 @@ export class User extends Model<User, UserCreationAttrs> {
     // Указываем c какой сущностью мы связываем и через какую таблицу мы это делаем
     @BelongsToMany(() => Role, () => UserRoles)
     roles: Role[];
+
+    // Т.к. 1 пользователь может иметь большое колличество постов, ма реализуем между постами и
+    // пользователями связь one-to-many
+    @HasMany(() => Post)
+    posts: Post[];
 }

@@ -53,12 +53,13 @@ export class AuthService {
 
     private async validateUser(userDto: UserDTO) {
         const user = await this.userService.getUserByEmail(userDto.email);
-        const passwordEquals = await compare(userDto.password, user.password);
 
-        console.log(userDto.password);
+        if (user) {
+            const passwordEquals = await compare(userDto.password, user.password);
 
-        if (user && passwordEquals) {
-            return user;
+             if (passwordEquals) {
+                 return user;
+             }
         }
 
         // UnauthorizedException это нестовая ошибка, которая наследуется от HttpException
